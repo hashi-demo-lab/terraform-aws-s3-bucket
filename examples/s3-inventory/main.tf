@@ -92,7 +92,7 @@ resource "random_pet" "this" {
 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-inventory.html#configure-inventory-kms-key-policy
 module "kms" {
   source  = "terraform-aws-modules/kms/aws"
-  version = "~> 2.0"
+  version = "~> 4.0"
 
   description             = "Key example for Inventory S3 destination encyrption"
   deletion_window_in_days = 7
