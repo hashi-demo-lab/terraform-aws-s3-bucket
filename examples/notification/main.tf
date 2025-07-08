@@ -44,7 +44,7 @@ resource "null_resource" "download_package" {
 
 module "lambda_function1" {
   source  = "terraform-aws-modules/lambda/aws"
-  version = "~> 3.0"
+  version = "~> 8.0"
 
   function_name = "${random_pet.this.id}-lambda1"
   handler       = "index.lambda_handler"
@@ -56,7 +56,7 @@ module "lambda_function1" {
 
 module "lambda_function2" {
   source  = "terraform-aws-modules/lambda/aws"
-  version = "~> 3.0"
+  version = "~> 8.0"
 
   function_name = "${random_pet.this.id}-lambda2"
   handler       = "index.lambda_handler"
