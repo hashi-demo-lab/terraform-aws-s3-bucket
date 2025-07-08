@@ -118,7 +118,7 @@ resource "aws_s3tables_namespace" "namespace" {
 
 module "kms" {
   source  = "terraform-aws-modules/kms/aws"
-  version = "~> 2.0"
+  version = "~> 4.0"
 
   description             = "Key example for s3 table buckets"
   deletion_window_in_days = 7
