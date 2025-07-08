@@ -58,7 +58,7 @@ data "aws_iam_policy_document" "bucket_policy" {
 
 module "log_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "~> 2.0"
+  version = "~> 5.2"
 
   bucket        = "logs-${random_pet.this.id}"
   acl           = "log-delivery-write"
@@ -76,7 +76,7 @@ module "log_bucket" {
 # Sample which was used in this module with AWS provider before version 3.75 and 4.0
 module "s3_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "~> 2.0"
+  version = "~> 5.2"
 
   bucket              = local.bucket_name
   acl                 = "private"
