@@ -68,14 +68,14 @@ module "lambda_function2" {
 
 module "sns_topic1" {
   source  = "terraform-aws-modules/sns/aws"
-  version = "~> 3.0"
+  version = "~> 6.2"
 
   name_prefix = "${random_pet.this.id}-2"
 }
 
 module "sns_topic2" {
   source  = "terraform-aws-modules/sns/aws"
-  version = "~> 3.0"
+  version = "~> 6.2"
 
   name_prefix = "${random_pet.this.id}-2"
 }
