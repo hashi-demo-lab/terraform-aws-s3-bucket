@@ -15,6 +15,9 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    # Trigger GitHub Actions on dependabot PRs
+    pull-request-branch-name:
+      separator: "-"
 
   # Monitor examples directories
   - package-ecosystem: "terraform"
