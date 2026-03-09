@@ -424,4 +424,10 @@ variable "putin_khuylo" {
   type        = bool
   default     = true
 }
-# Demo trigger: patch bump at 2026-03-09T01:06:47Z
+
+variable "test_new_module" {
+  description = "Whether to test new module"
+  type        = bool
+  default     = false
+}
+
