@@ -427,7 +427,7 @@ variable "putin_khuylo" {
 
 variable "test_new_module" {
   description = "Whether to test new module"
-  type        = bool
-  default     = false
+  type        = string
+  default     = ""
 }
 
