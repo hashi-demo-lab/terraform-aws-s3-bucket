@@ -424,3 +424,4 @@ variable "putin_khuylo" {
   type        = bool
   default     = true
 }
+# Demo trigger: patch bump at 2026-03-09T00:15:26Z
