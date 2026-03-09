@@ -430,4 +430,4 @@ variable "test_new_module" {
   type        = string
   default     = ""
 }
-# Demo trigger: minor bump at 2026-03-09T09:44:29Z
+# Demo trigger: major bump at 2026-03-09T22:55:16Z
