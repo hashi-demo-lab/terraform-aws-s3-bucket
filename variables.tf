@@ -349,7 +349,7 @@ variable "restrict_public_buckets" {
 variable "control_object_ownership" {
   description = "Whether to manage S3 Bucket Ownership Controls on this bucket."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "object_ownership" {
@@ -419,10 +419,20 @@ variable "metadata_journal_table_record_expiration" {
   default     = null
 }
 
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+variable "environment" {
+  description = "The deployment environment. All consumers must specify this value."
+  type        = string
+
+  validation {
+    condition     = contains(["dev", "staging", "prod"], var.environment)
+    error_message = "The environment value must be one of: dev, staging, prod."
+  }
+}
+
+variable "enable_eventbridge" {
+  description = "Whether to enable EventBridge notifications on the S3 bucket."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "test_new_module" {

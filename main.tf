@@ -10,7 +10,7 @@ data "aws_caller_identity" "current" {}
 
 data "aws_partition" "current" {}
 locals {
-  create_bucket = var.create_bucket && var.putin_khuylo
+  create_bucket = var.create_bucket
 
   create_bucket_acl = (var.acl != null && var.acl != "null") || length(local.grants) > 0
 
@@ -52,7 +52,7 @@ resource "aws_s3_bucket" "this" {
 
   force_destroy       = var.force_destroy
   object_lock_enabled = var.object_lock_enabled
-  tags                = var.tags
+  tags                = merge(var.tags, { Environment = var.environment })
 }
 
 resource "aws_s3_directory_bucket" "this" {
@@ -1407,4 +1407,15 @@ resource "aws_s3_bucket_metadata_configuration" "this" {
       }
     }
   }
+}
+
+################################################################################
+# S3 Bucket Notification (EventBridge)
+################################################################################
+
+resource "aws_s3_bucket_notification" "this" {
+  count = local.create_bucket && !var.is_directory_bucket && var.enable_eventbridge ? 1 : 0
+
+  bucket      = aws_s3_bucket.this[0].id
+  eventbridge = true
 }

@@ -1,4 +1,4 @@
-output "s3_bucket_id" {
+output "s3_bucket_name" {
   description = "The name of the bucket."
   value       = try(aws_s3_bucket.this[0].id, aws_s3_directory_bucket.this[0].bucket, "")
 }
@@ -66,4 +66,9 @@ output "aws_s3_bucket_versioning_status" {
 output "s3_bucket_tags" {
   description = "Tags of the bucket."
   value       = try(aws_s3_bucket.this[0].tags, {})
+}
+
+output "s3_bucket_eventbridge_enabled" {
+  description = "Whether EventBridge notifications are configured for the bucket."
+  value       = length(aws_s3_bucket_notification.this) > 0
 }
